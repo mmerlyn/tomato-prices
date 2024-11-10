@@ -1,0 +1,173 @@
+## Tomato-Prices
+
+Analysis of tomato prices in Karnataka from 2016 to 2018/4
+
+It is heartbreaking to learn that farmers in India sometimes have to let their harvests rot in the field, due to low market prices. This is more commonaly seen in tomato harvests, where during some particular months, due to very low market prices, the cost of harvesting and transporting is higher than the expected return. Hence most farmers let the fruits to rot/throw them on roads, let cattle eat them, etc.
+
+This problem is due to the supply demand imbalance, where increase in supply, reduces demand, leading to low prices. Using machine learning techniques, we can predict the expected price for tomatoes, at a particular market, when supply is a certain number of tonnes. This knowledge, can help farmers, plan ahead, and maybe opt for a different crop, if the predicted selling price is low.
+
+The tomato_app file is the web page made from flask. It uses the HTML files in templates.
+Templates can be found in the templates branch
+
+## Application demonstration:
+
+- https://quartz14.github.io/Tomato-Prices/
+
+## Files:
+
+- Price of Tomato Karnataka(2016-2018).csv file contains the raw data obtained from Kaggle URL: https://www.kaggle.com/vinayreddy4034/vegetablepricetomato
+
+- The modified data is stored in monthly_tomato.csv file
+
+- Tomato2 is a python notebook containing the data exploration, analysis and visualizations, to identify trends in data
+
+- monthly_tomato notebook contains the machine learning part of code
+
+- monthly_gbr_model3 is the pickled machine learning model obtained from monthly_tomato notebook
+
+- monthly_tomato_app file is a flask app that uses the pickled model to predict the prices.
+
+- The Templates branch contains 2 html files: 
+    1) monthly_tomato_home - Home page that takes in user inputs Month, Market Area, Average Tonnes per month for that market
+    2) tomato_result - Displays the predicted values
+
+- Requirements contains the python libraries required to run the pogram
+
+
+----------------------------------------------------------------------------------------------------------------
+# ASL-recogniser
+American Sign language translator
+
+The goal of this project was to build a sign language translator. That is, an application capable of interpreting the actions made by one user in video form, and translating that to text. We used the American Sign language for this purpose, to interpret alphabets.
+
+### Dataset source:
+  https://www.kaggle.com/grassknoted/asl-alphabet
+  
+### Technology used:
+Python, openCV (for getting input video and preprocessing it), Tensorflow (for the convolution model)
+  
+### How it works:
+1. Train and save a convolution mode to recognise alphabets using train dataset.
+2. Get video feed from webcam and preprocess each frame to remove background and threshold the image, so that the hand action is highlighted
+3. Pass this preprocessed image to the model to predict the action
+4. Display the prediction text on screen along with video
+  
+The jupyter notebook contains the code for final model used and F1 scores for various classes.
+The asl_abc video depict the model in action, on an youtube video (https://www.youtube.com/watch?v=pDfnf96qz_4)
+Refered code (https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/, https://gogul.dev/software/hand-gesture-recognition-p1)
+
+## Results: 
+  The convolution model achieved 99% accuracy, while the test accuracy was lower, around 70%. On analysing the cause we found that, the dataset used to train the model was perfectly thresholded, to classify the hand action from the background, and our method to threshold the live camera feed, was not as accurate. This lead to a significant drop in performance. 
+  
+## Lesson learnt: 
+Make sure the preprocessing in train dataset matches as much as possible to the test dataset
+
+----------------------------------------------------------------------------------------------------------------
+
+## Sales-mangement-system-for-farmers
+
+## Problem statement
+
+In India, where there are many small farmers, the sale of farm produce ocuurs in day to day basis. The shop keepers generally provide a bill containing all transactions at the end of the month. This bill which is mostly hand written. It is difficult to store and retrieve in the long run. So by digitizing the bill, we allow the user to view their sales data easily and efficiently. This also creates the opportunity to create reports on sales based on crop, rate, month, shop, etc.,
+
+With growth in user base we can begin recommending crops to sow, based on estimated prices. This will help empower the farmer to make the crucial decision of when, where and how to sell their valuable produce
+
+## Technology used:
+
+PHP, HTML, CSS, MySQL
+
+The project_report file contains a detailed description of the features of the product
+
+## Learning
+
+This project helped us understand a problem from user perspective, plan use case analysis and to ask the right questions to develop a software product. We were able to use the knowledge gained from Database Management System course in our college and this wonderfull book on php (https://www.oreilly.com/library/view/head-first-php/9780596157739/), to integrate web applications and database management systems.
+
+------------------------------------------------------------------------------------------------------------
+
+# fertilizer_recommendation
+Help farmers better care for their plants nutritional needs
+
+## Deployed application: 
+    https://share.streamlit.io/quartz14/fertilizer_recommendation/main/first_app.py
+
+CROPS FOCUSSED:
+* Rice
+* Wheat
+* Maize
+
+NUTRIENTS FOCUSSED:
+* Potassium
+* Magnesium
+* Zinc
+* Iron
+* Manganese
+* Copper
+* Boron
+* Sulphur
+* Nitrogen deficiency levels - only for rice
+
+FLOW:
+* User can upload an image of the leaf(that begins to show some symptoms like loss of color(chlorosis), drying(necrosis))
+* The model runs on the image and classifies it into 1 of 5 symptoms (includes a healthy/normal class).
+* Uses user input on age of leaf (new/old/middle) and presence of 4 additional symptoms (not capture in leaf image), like stunted growth of entire plant.
+* Using this infomation and the research on identifying nutrient deficiencies (done by Montana State University, U.S. Department of Agriculture), the following rules are developed.
+![m0](model_results/rules.png)
+* These results are further used to recommend appropriate fertilizers to the farmer, helping in **avoiding overfertilization** by adding standard fertilizers recommended to crop grown and **control costs**
+
+SCREENSHOTS
+* Few predictions of model trained to identify nutrient deficiency symptoms:
+![m1](model_results/model_pred2_200.JPG)
+![m2](model_results/test_conf.JPG)
+
+Application screenshots
+* Home page 
+![a1](web_app/homepage.JPG)
+
+* Image upload and analysis page
+![a2](web_app/analysis_upload.JPG)
+
+* Results upon analysis page
+![a3](web_app/result_all.JPG)
+
+* Fertilizer recommendation (in progress)
+![a4](web_app/fertilizer_schedule_customised.JPG)
+
+* Some more model prediction examples (note the confusion between margin and tip class)
+![m3](model_results/model_pred3_200_tip.JPG)
+
+FILES:
+* fertilizer.xls - Excel file containing the data on fertilizers. It has 2 pages which needs to be updated with the info collected
+* first_app.py - The web application that is view by users
+* 200_epoch_97_87_soft.h5 - neural network model for classifying leaf image into 1 of 5 classes ['interveinal', 'margin', 'normal', 'spotty', 'tip']
+* plain2model.tflite - neural network model for classifying rice leaf image into 1 of 4 classes based on LCC
+* nn_model_basic.ipynb - Jupyter notebook containing code used to train nn model
+* SessionState.py - library to allow use of session in application
+
+TO DO:
+* Collect info on fertilizers based on stage of crop(Ex: seedling, established, flowering, mature), type of crop (Ex: rice,wheat, maize), per acre for nutrients: 'Potassium', 'Magnesium', 'Zinc', 'Iron', 'Manganese', 'Copper', 'Boron' and 'Sulphur'
+* Add images to manual symptoms in results page to make it easier for user
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
