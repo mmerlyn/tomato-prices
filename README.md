@@ -4,7 +4,7 @@
 
 This project analyzes tomato prices in Karnataka from 2016 to 2018 and forecasts future prices using a machine learning model. The motivation comes from the challenges faced by farmers when market prices drop so low that harvesting becomes unprofitable.
 
-[🌐 Demo ] (https://drive.google.com/file/d/15CCHZwvlRhmBjlY5jUqNidPYYGhNCo3c/view?usp=sharing)
+[🌐 Demo](https://drive.google.com/file/d/15CCHZwvlRhmBjlY5jUqNidPYYGhNCo3c/view?usp=sharing) 
 
 ### Problem Statement
 
@@ -17,7 +17,7 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
 - Using machine learning techniques, we can predict the expected price for tomatoes, at a particular market, when supply is a certain number of tonnes.
 - This knowledge, can help farmers, plan ahead, and may be opt for a different crop, if the predicted selling price is low.
 
-## Machine Learning Approach
+### Machine Learning Approach
 
 - A **Gradient Boosting Regression** model was used to forecast monthly tomato prices based on supply data.
 - Achieved **~80% accuracy**.
@@ -44,12 +44,12 @@ The Templates branch contains 2 html files:
 1. monthly_tomato_home - Home page that takes in user inputs Month, Market Area, Average Tonnes per month for that market 
 2. tomato_result - Displays the predicted values
 
-## How It Works
+## Working
 
 - **Data Preprocessing:** Cleaned and aggregated supply and price data on a monthly basis.
 - **Model Training:** Used Gradient Boosting to predict price from features like month, supply (tonnes), and market location.
-- **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
 - **Visualization:** Insightful plots help understand seasonal and regional price trends.
+- **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
 
 ## 🛠 Technologies Used
 
