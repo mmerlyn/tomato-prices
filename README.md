@@ -69,5 +69,11 @@ The Templates branch contains 2 html files:
 - Effective preprocessing and feature engineering dramatically improve performance.
 - Flask is a powerful tool to rapidly deploy ML models for real-world users.
 
+This project was completed as part of the Project-Based Learning (PBL) contest at **BMS Institute of Technology and Management**, Bengaluru, India.
+
+**Team Members:**
+1. Merlyn Mercylona Maki Reddy  
+2. Aishwarya M
+
 
 
