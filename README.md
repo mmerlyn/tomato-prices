@@ -26,7 +26,7 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
 
 ## Approach
 
-- **Data Preprocessing:** Cleaned and aggregated supply and price data on a monthly basis.
+- **Data Preprocessing:** Cleaned and processed supply and price data on a monthly basis.
 - **Model Training:** Used Gradient Boosting Regression (Scikit-learn) to predict price from features like  Month, Market Area, Supply (Tonnes), Min/Max Prices (optional).
 - **Visualization:** Insightful plots help understand seasonal and regional price trends.
 - **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
@@ -58,7 +58,7 @@ A Flask-based interface allows users to input:
 - Market area
 - Estimated supply (in tonnes)
 
-The app returns a **predicted modal price**, allowing farmers and analysts to assess profitability.
+The app returns a **predicted price**, allowing farmers and analysts to assess profitability.
 
 ## 📂 Files Overview
 
@@ -79,17 +79,17 @@ The Templates branch contains 2 html files:
 
 ## Learnings
 
-- Importance of matching real-world domain knowledge with machine learning.
-- Effective preprocessing and feature engineering dramatically improve performance.
-- Correlation in target-predicting features can inflate test scores — need to validate with field-ready data.
-- Flask is a practical way to deploy and showcase machine learning solutions.
+- How to apply machine learning to a real-world problem with practical impact  
+- The importance of cleaning and preparing data to improve model accuracy  
+- Some input features (like max/min prices) can give very high accuracy, but don't always reflect real-world conditions  
+- Building a simple web interface with Flask helps users easily try out our model
 
 ## Future Work
 
-- Include real-time features: weather, rainfall, pests, crop variety
-- Build regional sowing and harvesting profiles to forecast peaks
-- Recommend alternate markets or months to sell produce
-- Integrate visual dashboards for farmers and policy planners
+- Add real-time data like weather or pest alerts to improve prediction  
+- Recommend better months or markets for selling produce  
+- Visualize trends in a more interactive way (dashboards or maps)  
+- Help farmers estimate profits for different harvest levels 
 
 ## 📜 License
 © All rights reserved.  
