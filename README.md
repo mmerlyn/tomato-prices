@@ -1,12 +1,10 @@
-# Analysis of Tomato Prices in Karnataka
+# 🍅 Analysis of Tomato Prices in Karnataka
 
-## 📈 A tool that predicts the prices of tomato crops in Karnataka based on market conditions
-
-This project analyzes tomato prices in Karnataka from 2016 to 2018 and forecasts future prices using a machine learning model. The motivation comes from the challenges faced by farmers when market prices drop so low that harvesting becomes unprofitable.
+This project analyzes tomato prices in Karnataka from 2016 to 2018 and forecasts future prices using a machine learning model. The aim is to help farmers make informed decisions about crop planning and sales based on historical pricing patterns and supply trends.
 
 [🌐 Demo](https://drive.google.com/file/d/15CCHZwvlRhmBjlY5jUqNidPYYGhNCo3c/view?usp=sharing) 
 
-### Problem Statement
+## 💡 Motivation & Impact
 
 Analysis of tomato prices in Karnataka from 2016 to 2018/4
 
@@ -17,13 +15,63 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
 - Using machine learning techniques, we can predict the expected price for tomatoes, at a particular market, when supply is a certain number of tonnes.
 - This knowledge, can help farmers, plan ahead, and may be opt for a different crop, if the predicted selling price is low.
 
-### Machine Learning Approach
 
-- A **Gradient Boosting Regression** model was used to forecast monthly tomato prices based on supply data.
-- Achieved **~80% accuracy**.
-- Developed a **Flask web application** that allows users to input expected monthly supply and get predicted prices for different market areas.
+## 📌 Problem Statement
 
----
+- Prices of tomatoes fluctuate drastically due to supply-demand imbalance.
+- Farmers lack real-time tools or data-driven insights to plan their harvest and sales.
+- The goal is to predict modal prices based on supply and month using historical data (2016–2018).
+
+## Approach
+
+This project uses machine learning to forecast tomato prices based on historical supply data, helping farmers:
+- Anticipate price crashes or peaks
+- Decide **whether, when, and where** to sell their produce
+- Avoid overharvesting and reduce waste
+- Optimize profits by aligning with market trends
+
+- **Data Preprocessing:** Cleaned and aggregated supply and price data on a monthly basis.
+- **Model Training:** Used Gradient Boosting Regression (Scikit-learn) to predict price from features like  Month, Market Area, Supply (Tonnes), Min/Max Prices (optional).
+- **Visualization:** Insightful plots help understand seasonal and regional price trends.
+- **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
+
+## 🛠 Technologies Used
+
+- Python
+- Pandas, NumPy
+- Scikit-learn (Gradient Boosting)
+- Matplotlib, Seaborn (Visualization)
+- Flask (Web application)
+- HTML/CSS (UI)
+
+## 📈 Results
+
+- ✅ **Training Score**: 99%  
+- ✅ **Test Score**: 98% (when including Max/Min prices — which are strongly correlated to target)
+
+- ❗ **Realistic Model (without Max/Min features)**:
+  - Training Score: 83%
+  - Test Score: 65%
+  - RMSE: ₹320
+
+Including external variables like weather, pest activity, or market access could improve real-world performance.
+
+## 📊 Key Insights from the Data
+
+- Most markets receive ~60 tonnes/month — prices crash when supply exceeds this.
+- **Kolar market** is the largest and most influential in the dataset.
+- Price is highly sensitive to small changes in supply.
+- Modal, Max, and Min prices are **~80% correlated**, making price prediction easier but less robust.
+- Identical supply quantities can yield different prices across markets and dates - indicating market inefficiency.
+
+## 🌐 Web Application
+
+A Flask-based interface allows users to input:
+- Month
+- Market area
+- Estimated supply (in tonnes)
+
+The app returns a **predicted modal price**, allowing farmers and analysts to assess profitability.
 
 ## 📂 Files Overview
 
@@ -38,39 +86,26 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
 | `templates/` | HTML templates used by the Flask app |
 | `requirements.txt` | List of Python libraries required to run the app |
 
----
-
 The Templates branch contains 2 html files: 
 1. monthly_tomato_home - Home page that takes in user inputs Month, Market Area, Average Tonnes per month for that market 
 2. tomato_result - Displays the predicted values
-
-## Working
-
-- **Data Preprocessing:** Cleaned and aggregated supply and price data on a monthly basis.
-- **Model Training:** Used Gradient Boosting to predict price from features like month, supply (tonnes), and market location.
-- **Visualization:** Insightful plots help understand seasonal and regional price trends.
-- **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
-
-## 🛠 Technologies Used
-
-- **Python**, **Pandas**, **NumPy**
-- **Matplotlib**, **Seaborn** (for data visualization)
-- **Scikit-learn**, **Gradient Boosting Regression**
-- **Flask** (for web app)
-
-## Results
-
-- **Training Accuracy:** ~80%
-- Price trends were learned well from structured data, but could be further improved with real-time or external market variables (e.g., weather, demand indicators).
 
 ## Learnings
 
 - Importance of matching real-world domain knowledge with machine learning.
 - Effective preprocessing and feature engineering dramatically improve performance.
-- Flask is a powerful tool to rapidly deploy ML models for real-world users.
+- Correlation in target-predicting features can inflate test scores — need to validate with field-ready data.
+- Flask is a practical way to deploy and showcase machine learning solutions.
 
-## End Notes
+## Future Work
 
+- Include real-time features: weather, rainfall, pests, crop variety
+- Build regional sowing and harvesting profiles to forecast peaks
+- Recommend alternate markets or months to sell produce
+- Integrate visual dashboards for farmers and policy planners
+
+## 📜 License
+© All rights reserved.  
 This project was completed as part of the Project-Based Learning (PBL) contest at **BMS Institute of Technology and Management**, Bengaluru, India.
 
 **Team Members:**
