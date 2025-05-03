@@ -15,26 +15,6 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
 - Using machine learning techniques, we can predict the expected price for tomatoes, at a particular market, when supply is a certain number of tonnes.
 - This knowledge, can help farmers, plan ahead, and may be opt for a different crop, if the predicted selling price is low.
 
-
-## 📌 Problem Statement
-
-- Prices of tomatoes fluctuate drastically due to supply-demand imbalance.
-- Farmers lack real-time tools or data-driven insights to plan their harvest and sales.
-- The goal is to predict modal prices based on supply and month using historical data (2016–2018).
-
-## Approach
-
-This project uses machine learning to forecast tomato prices based on historical supply data, helping farmers:
-- Anticipate price crashes or peaks
-- Decide **whether, when, and where** to sell their produce
-- Avoid overharvesting and reduce waste
-- Optimize profits by aligning with market trends
-
-- **Data Preprocessing:** Cleaned and aggregated supply and price data on a monthly basis.
-- **Model Training:** Used Gradient Boosting Regression (Scikit-learn) to predict price from features like  Month, Market Area, Supply (Tonnes), Min/Max Prices (optional).
-- **Visualization:** Insightful plots help understand seasonal and regional price trends.
-- **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
-
 ## 🛠 Technologies Used
 
 - Python
@@ -43,6 +23,21 @@ This project uses machine learning to forecast tomato prices based on historical
 - Matplotlib, Seaborn (Visualization)
 - Flask (Web application)
 - HTML/CSS (UI)
+
+## Approach
+
+- **Data Preprocessing:** Cleaned and aggregated supply and price data on a monthly basis.
+- **Model Training:** Used Gradient Boosting Regression (Scikit-learn) to predict price from features like  Month, Market Area, Supply (Tonnes), Min/Max Prices (optional).
+- **Visualization:** Insightful plots help understand seasonal and regional price trends.
+- **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
+
+## 📊 Key Insights from the Data
+
+- Most markets receive ~60 tonnes/month — prices crash when supply exceeds this.
+- **Kolar market** is the largest and most influential in the dataset.
+- Price is highly sensitive to small changes in supply.
+- Modal, Max, and Min prices are **~80% correlated**, making price prediction easier but less robust.
+- Identical supply quantities can yield different prices across markets and dates - indicating market inefficiency.
 
 ## 📈 Results
 
@@ -55,14 +50,6 @@ This project uses machine learning to forecast tomato prices based on historical
   - RMSE: ₹320
 
 Including external variables like weather, pest activity, or market access could improve real-world performance.
-
-## 📊 Key Insights from the Data
-
-- Most markets receive ~60 tonnes/month — prices crash when supply exceeds this.
-- **Kolar market** is the largest and most influential in the dataset.
-- Price is highly sensitive to small changes in supply.
-- Modal, Max, and Min prices are **~80% correlated**, making price prediction easier but less robust.
-- Identical supply quantities can yield different prices across markets and dates - indicating market inefficiency.
 
 ## 🌐 Web Application
 
