@@ -27,8 +27,8 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
 ## Approach
 
 - **Data Preprocessing:** Cleaned and processed supply and price data on a monthly basis.
-- **Model Training:** Used Gradient Boosting Regression (Scikit-learn) to predict price from features like  Month, Market Area, Supply (Tonnes), Min/Max Prices (optional).
 - **Visualization:** Insightful plots help understand seasonal and regional price trends.
+- **Model Training:** Used Gradient Boosting Regression (Scikit-learn) to predict price from features like  Month, Market Area, Supply (Tonnes), Min/Max Prices (optional).
 - **Web Interface:** Built with Flask. Users input month, market, and average tonnes — the app returns a predicted price.
 
 ## 📊 Key Insights from the Data
@@ -50,15 +50,6 @@ Analysis of tomato prices in Karnataka from 2016 to 2018/4
   - RMSE: ₹320
 
 Including external variables like weather, pest activity, or market access could improve real-world performance.
-
-## 🌐 Web Application
-
-A Flask-based interface allows users to input:
-- Month
-- Market area
-- Estimated supply (in tonnes)
-
-The app returns a **predicted price**, allowing farmers and analysts to assess profitability.
 
 ## 📂 Files Overview
 
